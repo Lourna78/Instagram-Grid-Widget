@@ -34,4 +34,110 @@
       align-items: center;
       background-color: #fafafa;
       padding: 10px 0;
-      border-bottom: 1px
+      border-bottom: 1px solid #ddd;
+    }
+
+    .nav-item {
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .nav-item:hover {
+      color: #0073e6;
+    }
+
+    .nav-item span {
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* Icônes simulées */
+    .icon {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #888;
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+    /* Conteneur de la grille */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px; /* Espacement entre les images */
+      padding: 10px;
+      background-color: #ffffff;
+    }
+
+    /* Style des items de la grille */
+    .grid-item {
+      width: 100%;
+      padding-top: 100%; /* Crée des carrés */
+      background-size: cover;
+      background-position: center;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .grid-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-container">
+    <!-- Barre de navigation -->
+    <div class="nav-bar">
+      <div class="nav-item">
+        <div class="icon"></div> PUBLICATIONS
+      </div>
+      <div class="nav-item">
+        <div class="icon"></div> REELS
+      </div>
+      <div class="nav-item">
+        <div class="icon"></div> IDENTIFIÉ(E)
+      </div>
+    </div>
+
+    <!-- Conteneur de la grille -->
+    <div class="grid-container" id="grid">
+      <!-- Les images seront insérées dynamiquement ici -->
+    </div>
+  </div>
+
+  <script>
+    // Tableau d'exemple d'URLs des images
+    const imageUrls = [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150"
+    ];
+
+    // Récupérer le conteneur de la grille
+    const grid = document.getElementById("grid");
+
+    // Ajouter les images dans la grille
+    imageUrls.forEach(url => {
+      const div = document.createElement("div");
+      div.className = "grid-item";
+      div.style.backgroundImage = `url(${url})`; // Appliquer l'image comme fond
+      grid.appendChild(div);
+    });
+  </script>
+</body>
+</html>
