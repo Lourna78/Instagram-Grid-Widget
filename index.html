@@ -7,83 +7,31 @@
   <style>
     /* Style général */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      background-color: #f8f9fa;
+    }
+
+    /* Conteneur principal */
+    .widget-container {
+      width: 380px;
       background-color: #ffffff;
-    }
-
-    /* Container de la grille */
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5px; /* Espacement entre les images */
-      width: 350px; /* Largeur totale du widget */
-      background-color: #ffffff;
-      padding: 10px;
       border: 1px solid #ddd;
-      border-radius: 5px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
 
-    /* Style des items de la grille */
-    .grid-item {
-      width: 100%;
-      padding-top: 100%; /* Crée des carrés */
-      background-size: cover;
-      background-position: center;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Titre au-dessus de la grille */
-    .grid-title {
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #333;
-    }
-  </style>
-</head>
-<body>
-  <div>
-    <!-- Titre de la grille -->
-    <div class="grid-title">Publications</div>
-
-    <!-- Conteneur de la grille -->
-    <div class="grid-container" id="grid">
-      <!-- Les images seront insérées dynamiquement ici -->
-    </div>
-  </div>
-
-  <script>
-    // Tableau d'exemple d'URLs des images
-    const imageUrls = [
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150"
-    ];
-
-    // Récupérer le conteneur de la grille
-    const grid = document.getElementById("grid");
-
-    // Ajouter les images dans la grille
-    imageUrls.forEach(url => {
-      const div = document.createElement("div");
-      div.className = "grid-item";
-      div.style.backgroundImage = `url(${url})`; // Appliquer l'image comme fond
-      grid.appendChild(div);
-    });
-  </script>
-</body>
-</html>
+    /* Barre de navigation */
+    .nav-bar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #fafafa;
+      padding: 10px 0;
+      border-bottom: 1px
