@@ -115,24 +115,16 @@
   </div>
 
   <script>
-    // Tableau d'exemple d'URLs des images (12 images maintenant)
-    const imageUrls = [
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150",
-      "https://via.placeholder.com/150"
-    ];
-
-    // Récupérer le conteneur de la grille
-    const grid = document.getElementById("grid");
+    // Appeler l'API Flask pour récupérer les URLs des images
+fetch("http://127.0.0.1:5000/images")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Erreur lors de la récupération des images");
+    }
+    return response.json(); // Convertir la réponse en JSON
+  })
+  .then(imageUrls => {
+    const grid = document.getElementById("grid"); // Sélectionner le conteneur de la grille
 
     // Ajouter les images dans la grille
     imageUrls.forEach(url => {
@@ -141,6 +133,10 @@
       div.style.backgroundImage = `url(${url})`; // Appliquer l'image comme fond
       grid.appendChild(div);
     });
+  })
+  .catch(error => {
+    console.error("Erreur :", error);
+  });
   </script>
 </body>
 </html>
